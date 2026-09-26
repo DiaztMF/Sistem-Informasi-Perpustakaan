@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoanManagementController;
+use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Student\CatalogController;
 use App\Http\Controllers\Student\HomeController;
@@ -31,6 +33,10 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/peminjaman/{loan}/setujui', [LoanManagementController::class, 'approve'])->name('admin.loans.approve');
     Route::post('/peminjaman/{loan}/kembali', [LoanManagementController::class, 'returnBook'])->name('admin.loans.return');
     Route::post('/peminjaman/{loan}/tolak', [LoanManagementController::class, 'reject'])->name('admin.loans.reject');
+    Route::get('/laporan', [ReportController::class, 'index'])->name('admin.reports.index');
+    Route::get('/laporan/export-csv', [ReportController::class, 'exportCsv'])->name('admin.reports.export');
+    Route::get('/pengaturan', [SettingController::class, 'index'])->name('admin.settings.index');
+    Route::put('/pengaturan', [SettingController::class, 'update'])->name('admin.settings.update');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
