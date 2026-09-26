@@ -147,6 +147,20 @@ export default function LoansIndex({
         });
     };
 
+    const formatDate = (dateStr: string | null): string => {
+        if (!dateStr) return '-';
+        try {
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('id-ID', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+            });
+        } catch {
+            return dateStr;
+        }
+    };
+
     const getStatusBadge = (status: Loan['status']) => {
         switch (status) {
             case 'diproses':
@@ -341,16 +355,16 @@ export default function LoansIndex({
                                                         </div>
                                                     </td>
                                                     <td className="px-4 py-3 text-center text-slate-600 dark:text-slate-300">
-                                                        {loan.loan_date}
+                                                        {formatDate(loan.loan_date)}
                                                     </td>
                                                     <td className="px-4 py-3 text-center text-slate-600 dark:text-slate-300">
                                                         {loan.return_date ? (
                                                             <div className="text-emerald-600 dark:text-emerald-400 font-medium">
-                                                                Kembali: {loan.return_date}
+                                                                Kembali: {formatDate(loan.return_date)}
                                                             </div>
                                                         ) : (
                                                             <div>
-                                                                Tempo: {loan.due_date}
+                                                                Tempo: {formatDate(loan.due_date)}
                                                             </div>
                                                         )}
                                                     </td>
@@ -570,8 +584,8 @@ export default function LoansIndex({
                                 <div className="rounded-lg bg-slate-50 p-3 text-xs space-y-1 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                                     <div><strong>Judul Buku:</strong> {returningLoan.book?.title}</div>
                                     <div><strong>Peminjam:</strong> {returningLoan.user?.name} ({returningLoan.user?.nis})</div>
-                                    <div><strong>Tgl Pinjam:</strong> {returningLoan.loan_date}</div>
-                                    <div><strong>Jatuh Tempo:</strong> {returningLoan.due_date}</div>
+                                    <div><strong>Tgl Pinjam:</strong> {formatDate(returningLoan.loan_date)}</div>
+                                    <div><strong>Jatuh Tempo:</strong> {formatDate(returningLoan.due_date)}</div>
                                 </div>
 
                                 {estimate.isLate ? (
@@ -654,16 +668,16 @@ export default function LoansIndex({
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <span className="text-slate-500">Tanggal Pinjam</span>
-                                    <span>{viewingDetailLoan.loan_date}</span>
+                                    <span>{formatDate(viewingDetailLoan.loan_date)}</span>
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <span className="text-slate-500">Jatuh Tempo</span>
-                                    <span>{viewingDetailLoan.due_date}</span>
+                                    <span>{formatDate(viewingDetailLoan.due_date)}</span>
                                 </div>
                                 {viewingDetailLoan.return_date && (
                                     <div className="flex justify-between items-center">
                                         <span className="text-slate-500">Tanggal Kembali</span>
-                                        <span className="text-emerald-600 font-semibold">{viewingDetailLoan.return_date}</span>
+                                        <span className="text-emerald-600 font-semibold">{formatDate(viewingDetailLoan.return_date)}</span>
                                     </div>
                                 )}
                                 {Number(viewingDetailLoan.fine_amount) > 0 && (

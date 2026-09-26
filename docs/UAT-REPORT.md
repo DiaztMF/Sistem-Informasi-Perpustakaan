@@ -33,11 +33,11 @@
 ### F-01 (Major, UX) — Redirect pasca-login jatuh ke `/email/verify`
 **Repro:** Login sebagai siswa maupun admin → browser mendarat di `/email/verify`, bukan `/katalog` / `/admin/dashboard`.
 **Penyebab (dugaan):** Fortify `HOME` mengarah ke `/dashboard` yang ber-middleware `verified`, sementara akun seed tidak verified.
-**Rekomendasi:** Custom `LoginResponse` / redirect berbasis role (siswa → `/`, admin → `/admin/dashboard`), atau tandai akun seed verified. Belum diperbaiki di sesi ini agar Pest suite (90 pass) tidak terganggu.
+**Status: FIXED.** Custom `app/Http/Responses/LoginResponse.php` terdaftar di `FortifyServiceProvider::register()` — siswa → `/`, admin → `/admin/dashboard`. Diverifikasi via browser (NIS 2026001 → `/`, admin → `/admin/dashboard`) + 2 Pest test baru. Suite: 92 passed.
 
 ### F-02 (Minor, kosmetik) — Tanggal mentah ISO di tabel `/admin/peminjaman`
 **Repro:** Kolom Tgl Pinjam / Jatuh Tempo tampil `2026-09-26T00:00:00.000000Z`.
-**Catatan:** Halaman `/admin/laporan` sudah format tanggal rapi (`26 Sep 2026`) — samakan formatter-nya.
+**Status: FIXED.** Helper `formatDate` (id-ID, `26 Sep 2026`) ditambahkan ke `resources/js/pages/admin/loans/index.tsx` dan dipakai di tabel, modal pengembalian, dan modal detail. Diverifikasi via browser: tidak ada lagi string ISO mentah.
 
 ## Catatan UAT
 - Data DB dikembalikan ke state seed murni via `migrate:fresh --seed` setelah UAT (loan UAT sudah dihapus).

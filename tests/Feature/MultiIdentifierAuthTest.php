@@ -62,6 +62,37 @@ test('login with invalid credentials fails with validation error', function () {
     $this->assertGuest();
 });
 
+test('admin login redirects to admin dashboard', function () {
+    User::factory()->create([
+        'email' => 'admin@example.com',
+        'password' => 'password123',
+        'role' => Role::ADMIN,
+    ]);
+
+    $response = $this->post('/login', [
+        'email' => 'admin@example.com',
+        'password' => 'password123',
+    ]);
+
+    $response->assertRedirect('/admin/dashboard');
+});
+
+test('siswa login redirects to home', function () {
+    User::factory()->create([
+        'email' => 'siswa@example.com',
+        'nis' => '10001',
+        'password' => 'secret123',
+        'role' => Role::SISWA,
+    ]);
+
+    $response = $this->post('/login', [
+        'email' => '10001',
+        'password' => 'secret123',
+    ]);
+
+    $response->assertRedirect('/');
+});
+
 test('route protected by role:admin allows admin and blocks student', function () {
     $admin = User::factory()->create([
         'role' => Role::ADMIN,
