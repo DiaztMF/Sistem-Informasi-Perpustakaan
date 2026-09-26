@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LoanManagementController;
+use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Student\CatalogController;
 use App\Http\Controllers\Student\HomeController;
 use App\Http\Controllers\Student\InformationController;
@@ -24,6 +26,11 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('buku', BookController::class)->names('admin.books');
     Route::resource('kategori', CategoryController::class)->names('admin.categories')->only(['store', 'update', 'destroy']);
+    Route::resource('siswa', StudentController::class)->names('admin.students')->except(['create', 'show', 'edit']);
+    Route::get('/peminjaman', [LoanManagementController::class, 'index'])->name('admin.loans.index');
+    Route::post('/peminjaman/{loan}/setujui', [LoanManagementController::class, 'approve'])->name('admin.loans.approve');
+    Route::post('/peminjaman/{loan}/kembali', [LoanManagementController::class, 'returnBook'])->name('admin.loans.return');
+    Route::post('/peminjaman/{loan}/tolak', [LoanManagementController::class, 'reject'])->name('admin.loans.reject');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
