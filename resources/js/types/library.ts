@@ -42,6 +42,23 @@ export type LibrarySetting = {
     updated_at?: string;
 };
 
+export type Loan = {
+    id: number;
+    loan_code: string;
+    user_id?: number;
+    book_id?: number;
+    loan_date: string;
+    due_date: string;
+    return_date: string | null;
+    status: 'diproses' | 'dipinjam' | 'selesai' | 'ditolak' | 'terlambat';
+    notes: string | null;
+    admin_notes: string | null;
+    fine_amount: number;
+    book?: Book;
+    created_at?: string;
+    updated_at?: string;
+};
+
 export type PaginatedResponse<T> = {
     data: T[];
     current_page: number;

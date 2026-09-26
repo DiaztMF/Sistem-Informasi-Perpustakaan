@@ -219,7 +219,7 @@ export default function BookDetail({ book, settings, canBorrow, cannotBorrowReas
                                     ) : isSiswa ? (
                                         canBorrow ? (
                                             <Button asChild className="bg-emerald-600 px-6 font-semibold text-white hover:bg-emerald-700">
-                                                <Link href={`/pinjam/${book.id}`}>
+                                                <Link href={`/peminjaman/${book.slug}`}>
                                                     <BookOpen className="mr-2 size-4" />
                                                     Ajukan Peminjaman
                                                 </Link>
