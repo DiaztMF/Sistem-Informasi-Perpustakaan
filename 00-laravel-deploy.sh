@@ -20,13 +20,9 @@ chmod -R 775 storage bootstrap/cache
 php artisan package:discover --ansi || true
 
 php artisan migrate --force
+php artisan db:seed --class=PerpustakaanSeeder --force
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
-
-# Seed demo sekali saja (set SEED_DEMO=true hanya di deploy pertama)
-if [ "${SEED_DEMO:-false}" = "true" ]; then
-  php artisan db:seed --class=PerpustakaanSeeder --force
-fi
 
 exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
