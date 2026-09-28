@@ -3,10 +3,10 @@
 ############################################
 # Stage 1: build frontend (Vite + Inertia)
 ############################################
-FROM node:22-alpine AS frontend
+FROM node:24-alpine AS frontend
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund
+RUN npm install -g npm@11 && npm ci --no-audit --no-fund
 COPY vite.config.ts tsconfig.json components.json ./
 COPY resources ./resources
 COPY public ./public
