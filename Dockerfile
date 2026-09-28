@@ -4,7 +4,7 @@ WORKDIR /var/www/html
 
 # System deps + PHP extensions Laravel (pdo_pgsql, gd, opcache, dkk)
 RUN apk add --no-cache \
-      nginx supervisor curl \
+      nginx supervisor curl git unzip \
       libpq libzip libpng libjpeg-turbo freetype icu-libs \
     && apk add --no-cache --virtual .build-deps \
       $PHPIZE_DEPS postgresql-dev libzip-dev libpng-dev \
@@ -19,15 +19,11 @@ RUN apk add --no-cache \
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Layer cache: install PHP dependencies dulu
-COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction --prefer-dist
-
-# Copy seluruh source code (termasuk public/build hasil npm run build lokal)
+# Copy seluruh source code dulu agar autoloader dan file project tersedia
 COPY . .
 
-# Generate optimized autoloader
-RUN composer dump-autoload --optimize --no-dev --no-interaction
+# Install PHP dependencies tanpa script lifecycle (package:discover jalan runtime di 00-laravel-deploy.sh saat env sudah ada)
+RUN composer install --no-dev --no-scripts --optimize-autoloader --no-interaction --prefer-dist --verbose
 
 # Permission Laravel
 RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache /run \
