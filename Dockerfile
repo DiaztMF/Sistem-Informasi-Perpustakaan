@@ -1,24 +1,8 @@
 # syntax=docker/dockerfile:1
-
-############################################
-# Stage 1: build frontend (Vite + Inertia)
-############################################
-FROM node:24-alpine AS frontend
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm install -g npm@11 && npm ci --no-audit --no-fund
-COPY vite.config.ts tsconfig.json components.json ./
-COPY resources ./resources
-COPY public ./public
-RUN npm run build
-
-############################################
-# Stage 2: runtime (PHP-FPM + Nginx)
-############################################
 FROM php:8.3-fpm-alpine
 WORKDIR /var/www/html
 
-# System deps + PHP extensions Laravel (pdo_pgsql dkk)
+# System deps + PHP extensions Laravel (pdo_pgsql, gd, opcache, dkk)
 RUN apk add --no-cache \
       nginx supervisor curl \
       libpq libzip libpng libjpeg-turbo freetype icu-libs \
@@ -35,15 +19,17 @@ RUN apk add --no-cache \
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Install deps dulu (layer cache), baru copy source
+# Layer cache: install PHP dependencies dulu
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction --prefer-dist
 
+# Copy seluruh source code (termasuk public/build hasil npm run build lokal)
 COPY . .
-COPY --from=frontend /app/public/build ./public/build
+
+# Generate optimized autoloader
 RUN composer dump-autoload --optimize --no-dev --no-interaction
 
-# Permission Laravel (anti error storage & bootstrap/cache)
+# Permission Laravel
 RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache /run \
     && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache \
