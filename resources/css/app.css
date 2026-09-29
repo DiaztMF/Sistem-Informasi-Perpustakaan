@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@import 'tw-animate-css';
+@import "tw-animate-css";
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -9,9 +9,9 @@
 
 @theme {
     --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
+        "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -35,13 +35,13 @@
     --color-emerald-300: #bfc695;
     --color-emerald-400: #9aa563;
     --color-emerald-500: #6f7a36;
-    --color-emerald-600: #454B1B;
+    --color-emerald-600: #454b1b;
     --color-emerald-700: #363c15;
     --color-emerald-800: #292e10;
     --color-emerald-900: #1d200b;
     --color-emerald-950: #0e1005;
 
-    --color-brand-primary: #454B1B;
+    --color-brand-primary: #454b1b;
     --color-brand-hover: #363c15;
 
     --color-secondary: var(--secondary);
@@ -83,7 +83,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: #454B1B;
+    --primary: #454b1b;
     --primary-foreground: #ffffff;
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
@@ -95,7 +95,7 @@
     --destructive-foreground: oklch(0.577 0.245 27.325);
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
-    --ring: #454B1B;
+    --ring: #454b1b;
     --chart-1: oklch(0.646 0.222 41.116);
     --chart-2: oklch(0.6 0.118 184.704);
     --chart-3: oklch(0.398 0.07 227.392);
@@ -112,7 +112,7 @@
     --sidebar-ring: oklch(0.87 0 0);
 }
 
-.dark {
+html.dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.145 0 0);
@@ -155,4 +155,142 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+html.dark {
+    --background: #12140d;
+    --foreground: #f1efe2;
+    --card: #1a1d12;
+    --card-foreground: #f1efe2;
+    --popover: #1e2115;
+    --popover-foreground: #f1efe2;
+    --secondary: #232819;
+    --secondary-foreground: #e8e7d4;
+    --muted: #232819;
+    --muted-foreground: #a8a992;
+    --accent: #262b18;
+    --accent-foreground: #f1efe2;
+    --border: rgba(154, 165, 99, 0.18);
+    --input: rgba(154, 165, 99, 0.24);
+    --sidebar: #16180f;
+    --sidebar-foreground: #f1efe2;
+    --sidebar-accent: #232819;
+    --sidebar-accent-foreground: #f1efe2;
+    --sidebar-border: rgba(154, 165, 99, 0.16);
+}
+
+html.dark ::selection {
+    background-color: rgba(111, 122, 54, 0.55);
+    color: #f5f4e9;
+}
+
+html.dark ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+    background: #12140d;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+    background: #2e3319;
+    border-radius: 8px;
+    border: 2px solid #12140d;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+    background: #454b1b;
+}
+
+html.dark .dark\:bg-slate-950 {
+    background-color: #12140d;
+}
+
+html.dark .dark\:bg-slate-950\/50 {
+    background-color: rgba(18, 20, 13, 0.5);
+}
+
+html.dark .dark\:bg-slate-900 {
+    background-color: #1b1e13;
+}
+
+html.dark .dark\:bg-slate-900\/95 {
+    background-color: rgba(27, 30, 19, 0.95);
+}
+
+html.dark .dark\:bg-slate-900\/60 {
+    background-color: rgba(18, 20, 13, 0.6);
+}
+
+html.dark .dark\:bg-slate-900\/50 {
+    background-color: rgba(27, 30, 19, 0.5);
+}
+
+html.dark .dark\:bg-slate-800 {
+    background-color: #262b18;
+}
+
+html.dark .dark\:bg-slate-800\/80 {
+    background-color: rgba(38, 43, 24, 0.8);
+}
+
+html.dark .dark\:bg-slate-900\/40 {
+    background-color: rgba(27, 30, 19, 0.4);
+}
+
+html.dark .dark\:bg-slate-900\/50 {
+    background-color: rgba(27, 30, 19, 0.5);
+}
+
+html.dark .dark\:border-slate-800\/80 {
+    border-color: rgba(154, 165, 99, 0.22);
+}
+
+html.dark .dark\:divide-slate-800\/60 > * + * {
+    border-color: rgba(154, 165, 99, 0.16);
+}
+
+html.dark .dark\:hover\:bg-slate-800:hover {
+    background-color: #2b3019;
+}
+
+html.dark .dark\:border-slate-800 {
+    border-color: rgba(154, 165, 99, 0.18);
+}
+
+html.dark .dark\:border-slate-700 {
+    border-color: rgba(154, 165, 99, 0.3);
+}
+
+html.dark .dark\:divide-slate-800 > * + * {
+    border-color: rgba(154, 165, 99, 0.14);
+}
+
+html.dark .dark\:text-white {
+    color: #f5f4e9;
+}
+
+html.dark .dark\:text-slate-100 {
+    color: #f3f2e6;
+}
+
+html.dark .dark\:text-slate-200 {
+    color: #e3e2cf;
+}
+
+html.dark .dark\:text-slate-300 {
+    color: #cfcfb4;
+}
+
+html.dark .dark\:text-slate-400 {
+    color: #a9aa91;
+}
+
+html.dark .dark\:text-slate-500 {
+    color: #8b8c74;
+}
+
+html.dark .dark\:placeholder-slate-400::placeholder {
+    color: #8b8c74;
 }

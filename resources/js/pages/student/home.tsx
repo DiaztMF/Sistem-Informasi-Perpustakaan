@@ -46,14 +46,25 @@ export default function Home({ stats, popularBooks, latestBooks, categories, set
             <Head title={`Beranda - ${settings?.name ?? 'Perpustakaan Sekolah'}`} />
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50/70 via-slate-50 to-white py-16 sm:py-24 dark:from-emerald-950/20 dark:via-slate-950 dark:to-slate-950">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50/70 via-slate-50 to-white py-16 sm:py-24 dark:from-[#1a1d12] dark:via-[#12140d] dark:to-[#12140d]">
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-40 left-1/2 hidden h-96 w-[46rem] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-[130px] dark:block"
+                />
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -bottom-48 left-1/4 hidden h-72 w-[28rem] rounded-full bg-emerald-300/10 blur-[110px] dark:block"
+                />
+                <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-3xl text-center">
-                        <Badge variant="outline" className="border-emerald-200 bg-emerald-100/60 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300">
+                        <Badge variant="outline" className="border-emerald-200 bg-emerald-100/60 text-emerald-800 dark:border-emerald-700/60 dark:bg-emerald-950/60 dark:text-emerald-300">
                             Pusat Literasi Digital Siswa
                         </Badge>
                         <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">
-                            Selamat Datang di Perpustakaan Sekolah
+                            Selamat Datang di{' '}
+                            <span className="text-emerald-700 dark:text-[#c3cc7d]">
+                                Perpustakaan Sekolah
+                            </span>
                         </h1>
                         <p className="mt-4 text-lg text-slate-600 sm:text-xl dark:text-slate-300">
                             Temukan berbagai koleksi buku untuk menambah wawasan dan pengetahuanmu
