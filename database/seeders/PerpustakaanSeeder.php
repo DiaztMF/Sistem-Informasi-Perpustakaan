@@ -191,6 +191,7 @@ class PerpustakaanSeeder extends Seeder
                     'stock' => $bookItem['stock'],
                     'total_stock' => $bookItem['total_stock'],
                     'synopsis' => $bookItem['synopsis'],
+                    'cover_image' => 'covers/'.$bookItem['slug'].'.jpg',
                 ]
             );
         }
