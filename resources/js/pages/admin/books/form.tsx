@@ -66,6 +66,7 @@ export default function BookForm({ categories, book }: BookFormProps) {
         stock: book?.stock ?? 1,
         synopsis: book?.synopsis || '',
         cover_image: null,
+        _method: isEdit ? 'PUT' : undefined,
     });
 
     const [previewUrl, setPreviewUrl] = useState<string | null>(
@@ -87,20 +88,12 @@ export default function BookForm({ categories, book }: BookFormProps) {
         e.preventDefault();
 
         if (isEdit) {
-            // Using post with _method=PUT to handle multipart/form-data with file upload in Laravel
-            routerPostUpdate();
+            post(`/admin/buku/${book?.id}`, {
+                forceFormData: true,
+            });
         } else {
             post('/admin/buku');
         }
-    };
-
-    const routerPostUpdate = () => {
-        // Use Inertia post with spoofed method PUT so files are processed properly
-        post(`/admin/buku/${book?.id}`, {
-            headers: {
-                'X-HTTP-Method-Override': 'PUT',
-            },
-        });
     };
 
     return (

@@ -95,8 +95,9 @@ class BookController extends Controller
         return redirect()->route('admin.books.index')->with('success', 'Buku berhasil ditambahkan.');
     }
 
-    public function edit(Book $book): Response
+    public function edit(Book $buku): Response
     {
+        $book = $buku;
         $categories = Category::orderBy('name')->get();
 
         return Inertia::render('admin/books/form', [
