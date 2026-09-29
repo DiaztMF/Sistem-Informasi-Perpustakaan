@@ -11,7 +11,6 @@ import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
-import PasskeyVerify from '@/components/passkey-verify';
 
 type Props = {
     status?: string;
@@ -30,8 +29,6 @@ export default function Login({ status, canResetPassword }: Props) {
     return (
         <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900">
             <Head title="Login Perpustakaan" />
-
-            <PasskeyVerify />
 
             <Form
                 {...store.form()}
