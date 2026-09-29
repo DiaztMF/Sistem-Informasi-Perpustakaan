@@ -14,6 +14,7 @@ import {
 import { useState, type ReactNode } from 'react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import ThemeToggle from '@/components/theme-toggle';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -199,7 +200,9 @@ export default function AdminLayout({ children, title }: AdminLayoutProps) {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <ThemeToggle />
+
                         <Link
                             href="/"
                             target="_blank"

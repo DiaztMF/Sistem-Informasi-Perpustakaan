@@ -3,6 +3,7 @@ import { BookOpen, HelpCircle, LogOut, Menu, User as UserIcon, X } from 'lucide-
 import { useState, type ReactNode } from 'react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import ThemeToggle from '@/components/theme-toggle';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -71,6 +72,8 @@ export default function StudentLayout({ children }: StudentLayoutProps) {
 
                     {/* Auth Area */}
                     <div className="hidden items-center gap-3 md:flex">
+                        <ThemeToggle />
+
                         {user ? (
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
@@ -140,7 +143,8 @@ export default function StudentLayout({ children }: StudentLayoutProps) {
                     </div>
 
                     {/* Mobile toggle */}
-                    <div className="flex md:hidden">
+                    <div className="flex items-center gap-1 md:hidden">
+                        <ThemeToggle />
                         <button
                             type="button"
                             onClick={() => setMobileOpen(!mobileOpen)}
