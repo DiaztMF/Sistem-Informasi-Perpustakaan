@@ -18,8 +18,8 @@ COPY . .
 RUN composer install --no-dev --no-scripts --optimize-autoloader --no-interaction --prefer-dist --ignore-platform-reqs
 
 # Permission Laravel
-RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache /run \
-    && chown -R www-data:www-data storage bootstrap/cache \
+RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache /run /tmp/nginx-client-body /tmp/nginx-fastcgi \
+    && chown -R www-data:www-data storage bootstrap/cache /tmp/nginx-client-body /tmp/nginx-fastcgi \
     && chmod -R 775 storage bootstrap/cache \
     && chmod +x 00-laravel-deploy.sh
 
