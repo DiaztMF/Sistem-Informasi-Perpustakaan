@@ -163,7 +163,7 @@ test('perpustakaan seeder populates settings users categories books and loans', 
     expect(User::where('email', 'siti@siswa.sch.id')->first())->not->toBeNull();
 
     expect(Category::count())->toBe(8);
-    expect(Book::count())->toBe(6);
+    expect(Book::count())->toBe(17);
     expect(Loan::count())->toBe(2);
 
     $admin = User::where('email', 'admin@perpustakaan.sch.id')->first();

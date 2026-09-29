@@ -58,16 +58,27 @@ Contoh login Andi: ketik `2026001` atau `andi@siswa.sch.id` di kolom identifier,
 | 7 | Agama | Pendidikan agama, moralitas, etika, dan studi keagamaan. |
 | 8 | Bahasa | Kamus, tata bahasa, dan pembelajaran bahasa asing maupun daerah. |
 
-### Buku (6)
+### Buku (17 Koleksi Bercover)
 
-| # | Judul | Pengarang | Stok |
-|---|-------|-----------|------|
-| 1 | Laut Bercerita | Leila S. Chudori | 5 |
-| 2 | Atomic Habits | James Clear | 3 |
-| 3 | Bumi | Tere Liye | 4 |
-| 4 | Sejarah Indonesia | Tim Redaksi | 10 |
-| 5 | Matematika SMA | Kemdikbud | 6 |
-| 6 | Biologi Campbell | Campbell | 3 |
+| # | Judul | Pengarang | Kategori | Stok | Cover |
+|---|-------|-----------|----------|------|-------|
+| 1 | Laut Bercerita | Leila S. Chudori | Fiksi | 5 | covers/laut-bercerita.jpg |
+| 2 | Atomic Habits | James Clear | Nonfiksi | 3 | covers/atomic-habits.jpg |
+| 3 | Bumi | Tere Liye | Fiksi | 4 | covers/bumi.jpg |
+| 4 | Sejarah Indonesia | Tim Redaksi | Sejarah | 10 | covers/sejarah-indonesia.jpg |
+| 5 | Matematika SMA | Kemdikbud | Pendidikan | 6 | covers/matematika-sma.jpg |
+| 6 | Biologi Campbell | Campbell | Sains | 3 | covers/biologi-campbell.jpg |
+| 7 | Laskar Pelangi | Andrea Hirata | Fiksi | 7 | covers/laskar-pelangi.jpg |
+| 8 | Sebuah Seni untuk Bersikap Bodo Amat | Mark Manson | Nonfiksi | 5 | covers/sebuah-seni-bersikap-bodo-amat.jpg |
+| 9 | Clean Code | Robert C. Martin | Teknologi | 4 | covers/clean-code.jpg |
+| 10 | The Pragmatic Programmer | David Thomas, Andrew Hunt | Teknologi | 3 | covers/pragmatic-programmer.jpg |
+| 11 | Sapiens: Riwayat Singkat Umat Manusia | Yuval Noah Harari | Sains | 6 | covers/sapiens.jpg |
+| 12 | Cosmos | Carl Sagan | Sains | 4 | covers/cosmos.jpg |
+| 13 | Thinking, Fast and Slow | Daniel Kahneman | Nonfiksi | 5 | covers/thinking-fast-and-slow.jpg |
+| 14 | A Brief History of Time | Stephen Hawking | Sains | 4 | covers/a-brief-history-of-time.jpg |
+| 15 | Steve Jobs | Walter Isaacson | Teknologi | 3 | covers/steve-jobs.jpg |
+| 16 | Max Havelaar | Multatuli | Sejarah | 5 | covers/max-havelaar.jpg |
+| 17 | Ayat-Ayat Cinta | Habiburrahman El Shirazy | Agama | 6 | covers/ayat-ayat-cinta.jpg |
 
 ### Pinjaman Contoh (2)
 
