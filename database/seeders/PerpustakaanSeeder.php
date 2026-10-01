@@ -53,10 +53,12 @@ class PerpustakaanSeeder extends Seeder
             ]
         );
 
+        User::whereIn('email', ['andi@siswa.sch.id', 'siti@siswa.sch.id'])->delete();
+
         $andi = User::updateOrCreate(
-            ['email' => 'andi@siswa.sch.id'],
+            ['email' => 'rizky@siswa.sch.id'],
             [
-                'name' => 'Andi Saputra',
+                'name' => 'Rizky Ramadhan',
                 'password' => Hash::make('password'),
                 'nis' => '2026001',
                 'role' => Role::SISWA,
@@ -66,9 +68,9 @@ class PerpustakaanSeeder extends Seeder
         );
 
         $siti = User::updateOrCreate(
-            ['email' => 'siti@siswa.sch.id'],
+            ['email' => 'dewi@siswa.sch.id'],
             [
-                'name' => 'Siti Aisyah',
+                'name' => 'Dewi Lestari',
                 'password' => Hash::make('password'),
                 'nis' => '2026002',
                 'role' => Role::SISWA,
@@ -329,7 +331,7 @@ class PerpustakaanSeeder extends Seeder
         }
 
         // 5. Sample Loans matching mockup
-        // Andi Saputra: pinjam "Laut Bercerita", status: diproses, loan_date: now(), due_date: now()->addDays(7)
+        // Rizky Ramadhan: pinjam "Laut Bercerita", status: diproses, loan_date: now(), due_date: now()->addDays(7)
         Loan::updateOrCreate(
             ['loan_code' => 'PJ-2026-001'],
             [
@@ -343,7 +345,7 @@ class PerpustakaanSeeder extends Seeder
             ]
         );
 
-        // Siti Aisyah: pinjam "Atomic Habits", status: dipinjam, loan_date: now()->subDays(2), due_date: now()->addDays(5)
+        // Dewi Lestari: pinjam "Atomic Habits", status: dipinjam, loan_date: now()->subDays(2), due_date: now()->addDays(5)
         Loan::updateOrCreate(
             ['loan_code' => 'PJ-2026-002'],
             [

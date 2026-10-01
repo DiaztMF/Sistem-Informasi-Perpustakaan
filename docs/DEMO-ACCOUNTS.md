@@ -19,8 +19,8 @@ Password semua akun demo: **`password`**
 | Nama | Email | NIS | Kelas | Role |
 |------|-------|-----|-------|------|
 | Petugas Perpustakaan | admin@perpustakaan.sch.id | - | - | Admin |
-| Andi Saputra | andi@siswa.sch.id | 2026001 | XII MIPA 1 | Siswa |
-| Siti Aisyah | siti@siswa.sch.id | 2026002 | XI IPS 2 | Siswa |
+| Rizky Ramadhan | rizky@siswa.sch.id | 2026001 | XII MIPA 1 | Siswa |
+| Dewi Lestari | dewi@siswa.sch.id | 2026002 | XI IPS 2 | Siswa |
 
 ### Login Multi-Identifier
 
@@ -29,7 +29,7 @@ Halaman login punya field **"Email atau NIS"**. Artinya:
 - **Siswa** bisa login pakai email **atau** NIS, lalu password `password`.
 - **Admin** login pakai email + password.
 
-Contoh login Andi: ketik `2026001` atau `andi@siswa.sch.id` di kolom identifier, password `password`.
+Contoh login Rizky: ketik `2026001` atau `rizky@siswa.sch.id` di kolom identifier, password `password`.
 
 ## URL Penting
 
@@ -84,8 +84,8 @@ Contoh login Andi: ketik `2026001` atau `andi@siswa.sch.id` di kolom identifier,
 
 | Kode | Peminjam | Buku | Status | Keterangan |
 |------|----------|------|--------|------------|
-| PJ-2026-001 | Andi Saputra | Laut Bercerita | Diproses | Pengajuan peminjaman untuk tugas literasi bahasa Indonesia. |
-| PJ-2026-002 | Siti Aisyah | Atomic Habits | Dipinjam | Peminjaman mandiri di loket perpustakaan. |
+| PJ-2026-001 | Rizky Ramadhan | Laut Bercerita | Diproses | Pengajuan peminjaman untuk tugas literasi bahasa Indonesia. |
+| PJ-2026-002 | Dewi Lestari | Atomic Habits | Dipinjam | Peminjaman mandiri di loket perpustakaan. |
 
 ### Aturan Perpustakaan
 

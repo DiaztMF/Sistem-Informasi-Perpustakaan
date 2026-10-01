@@ -159,8 +159,8 @@ test('perpustakaan seeder populates settings users categories books and loans', 
 
     expect(LibrarySetting::count())->toBeGreaterThanOrEqual(1);
     expect(User::where('email', 'admin@perpustakaan.sch.id')->first())->not->toBeNull();
-    expect(User::where('email', 'andi@siswa.sch.id')->first())->not->toBeNull();
-    expect(User::where('email', 'siti@siswa.sch.id')->first())->not->toBeNull();
+    expect(User::where('email', 'rizky@siswa.sch.id')->first())->not->toBeNull();
+    expect(User::where('email', 'dewi@siswa.sch.id')->first())->not->toBeNull();
 
     expect(Category::count())->toBe(8);
     expect(Book::count())->toBe(17);
@@ -169,12 +169,12 @@ test('perpustakaan seeder populates settings users categories books and loans', 
     $admin = User::where('email', 'admin@perpustakaan.sch.id')->first();
     expect($admin->role)->toBe(Role::ADMIN);
 
-    $andi = User::where('email', 'andi@siswa.sch.id')->first();
+    $andi = User::where('email', 'rizky@siswa.sch.id')->first();
     expect($andi->nis)->toBe('2026001');
     expect($andi->loans)->toHaveCount(1);
     expect($andi->loans->first()->status)->toBe(LoanStatus::DIPROSES);
 
-    $siti = User::where('email', 'siti@siswa.sch.id')->first();
+    $siti = User::where('email', 'dewi@siswa.sch.id')->first();
     expect($siti->nis)->toBe('2026002');
     expect($siti->loans)->toHaveCount(1);
     expect($siti->loans->first()->status)->toBe(LoanStatus::DIPINJAM);

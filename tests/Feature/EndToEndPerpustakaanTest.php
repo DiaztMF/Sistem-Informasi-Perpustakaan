@@ -45,7 +45,7 @@ test('full end-to-end journey of sistem informasi perpustakaan', function () {
     $siswa = User::where('nis', '2026001')->firstOrFail();
     $this->assertAuthenticatedAs($siswa);
 
-    // Clear existing sample loans for Andi so active loan count is 0
+    // Clear existing sample loans for Rizky so active loan count is 0
     Loan::where('user_id', $siswa->id)->delete();
 
     // 3. Siswa views book detail and submits borrow request for "Laut Bercerita"
@@ -153,5 +153,5 @@ test('full end-to-end journey of sistem informasi perpustakaan', function () {
     expect($csvContent)->toContain('Kode Pinjam')
         ->and($csvContent)->toContain($loan->loan_code)
         ->and($csvContent)->toContain('Laut Bercerita')
-        ->and($csvContent)->toContain('Andi Saputra');
+        ->and($csvContent)->toContain('Rizky Ramadhan');
 });
