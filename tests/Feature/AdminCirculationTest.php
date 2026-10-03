@@ -14,6 +14,8 @@ beforeEach(function () {
     ]);
 
     $this->student = User::factory()->create([
+        'name' => 'Siswa Default',
+        'email' => 'siswa.default@example.com',
         'role' => Role::SISWA,
         'nis' => '12345',
         'class_name' => 'XII RPL 1',
